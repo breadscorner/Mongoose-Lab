@@ -7,8 +7,6 @@ global.include = function(file) {
 	return require(abs_path('/' + file));
 }
 
-
-
 const express = require('express');
 const router = include('routes/router');
 
