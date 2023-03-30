@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"> </script>
+    </head>
+    <body>
+        <section class="section">
+            <div class="maincolumns columns is-desktop is-vcentered">
+                <div class="column is-10 is-offset-1 notification is-info is-light box container">
+                    <% if (locals.userAndPets) { %>
+                        <div class="title">
+                            Pets for <%= userAndPets.first_name %>
+                        </div>
+                        <% if (locals.userAndPets.pets) { %>
+                            <div class="table-container">
+                            <table class="table is-bordered is-hoverable is-striped is-narrow">
+                                <thead>
+                                <tr>
+                                    <th> Pet </th>
+                                </tr>
+                                </thead>
+                                <% let i=0; %>
+                                <% for(i=0; i < userAndPets.pets.length; i++) { %>
+                                <tr>
+                                    <td><%= userAndPets.pets[i].name %></td>
+                                </tr>
+                                <% } %>
+                                <tfoot>
+                                    <tr> <td colspan="1">
+                                    There are <%= i %> pets.
+                                    </td> </tr>
+                                </tfoot>
+                            </table>
+                            </div>
+                        <% } %>
+                    <% } %>
+
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
